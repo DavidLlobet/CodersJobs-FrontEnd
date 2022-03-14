@@ -1,0 +1,21 @@
+.header {
+  height: 70px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: aqua;
+}
+
+.header__logotitle {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header__list {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-item {
+  display: inline;
+}
