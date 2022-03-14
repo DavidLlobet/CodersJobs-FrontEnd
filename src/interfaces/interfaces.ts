@@ -1,3 +1,0 @@
-interface JSX.Element {
-  
-}
