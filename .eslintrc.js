@@ -4,7 +4,7 @@ module.exports = {
     es2021: true,
     jest: true,
   },
-  extends: ["airbnb-base", "airbnb-typescript/base", "prettier"],
+  extends: ["airbnb-base", "airbnb-typescript", "prettier"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
@@ -12,6 +12,7 @@ module.exports = {
     },
     ecmaVersion: "latest",
     sourceType: "module",
+    project: ["tsconfig.json"]
   },
   plugins: ["react", "@typescript-eslint"],
   rules: {},

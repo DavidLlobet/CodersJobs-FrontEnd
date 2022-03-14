@@ -1,7 +1,6 @@
 import "./Header.css";
 
-const Header = (): JSX.Element => {
-    return (
+const Header = (): JSX.Element => (
         <nav className="header">
             <ul className="header__logotitle">
                 <li className="header__logo list-item"> Logo </li>
@@ -12,7 +11,6 @@ const Header = (): JSX.Element => {
                 <li className="list-item">Login</li>
             </ul>
         </nav>
-    )
-};
+    );
 
 export default Header;
