@@ -1,0 +1,22 @@
+.header {
+  height: 70px;
+  background-color: #87cefa;
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.header__logotitle {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header__list {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.list-item {
+  display: inline;
+  margin: 0 5px;
+}
