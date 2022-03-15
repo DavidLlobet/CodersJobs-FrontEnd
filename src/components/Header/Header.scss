@@ -8,17 +8,18 @@
     display: flex;
   }
 
-.header__logotitle {
-  display: flex;
-  justify-content: flex-start;
-}
+  &__title1 {
+    color: #87cefa;
+    font-size: 18px;
+  }
 
-.header__list {
-  display: flex;
-  justify-content: flex-end;
-}
+  &__title2 {
+    color: #000;
+    font-size: 18px;
+  }
 
-.list-item {
-  display: inline;
-  margin: 0 5px;
+  &__login {
+    color: #000;
+    font-size: 18px;
+  }
 }
