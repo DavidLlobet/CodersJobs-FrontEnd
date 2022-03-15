@@ -1,0 +1,15 @@
+.footer {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+
+  &__text1 {
+    color: #87cefa;
+    font-size: 23px;
+  }
+
+  &__text2 {
+    color: #000;
+    font-size: 23px;
+  }
+}
