@@ -1,22 +1,24 @@
 .header {
-  height: 70px;
-  background-color: #87cefa;
-  position: sticky;
-  top: 0;
-  width: 100%;
-}
-
-.header__logotitle {
   display: flex;
-  justify-content: flex-start;
-}
+  justify-content: space-around;
 
-.header__list {
-  display: flex;
-  justify-content: flex-end;
-}
+  &__title {
+    align-self: flex-start;
+    display: flex;
+  }
 
-.list-item {
-  display: inline;
-  margin: 0 5px;
+  &__title1 {
+    color: #87cefa;
+    font-size: 18px;
+  }
+
+  &__title2 {
+    color: #000;
+    font-size: 18px;
+  }
+
+  &__login {
+    color: #000;
+    font-size: 18px;
+  }
 }
