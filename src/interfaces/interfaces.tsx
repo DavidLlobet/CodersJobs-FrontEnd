@@ -24,6 +24,7 @@ export interface IUser {
   isAdmin: boolean,
 }
 
+
 export interface IAction {
   type: string,
 }
@@ -31,4 +32,5 @@ export interface IAction {
 export interface IGetJobsAction extends IAction {
   jobs: IJob[];
 }
+
 
