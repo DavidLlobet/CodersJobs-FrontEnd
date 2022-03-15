@@ -1,10 +1,12 @@
 .header {
-  height: 70px;
-  background-color: #87cefa;
-  position: sticky;
-  top: 0;
-  width: 100%;
-}
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+
+  &__title {
+    align-self: flex-start;
+    display: flex;
+  }
 
 .header__logotitle {
   display: flex;
