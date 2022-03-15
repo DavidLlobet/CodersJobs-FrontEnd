@@ -3,7 +3,7 @@ import "./Footer.scss";
 
 export const Footer = (): JSX.Element => {
   return (
-    <div className="footer">
+    <div title="footer" className="footer">
       <p className="footer__text1">Coders</p>
       <p className="footer__text2">Jobs 2022</p>
     </div>
