@@ -24,3 +24,11 @@ export interface IUser {
   isAdmin: boolean,
 }
 
+export interface IAction {
+  type: string,
+}
+
+export interface IGetJobsAction extends IAction {
+  jobs: IJob[];
+}
+
