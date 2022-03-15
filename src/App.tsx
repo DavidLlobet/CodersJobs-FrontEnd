@@ -1,5 +1,5 @@
 import React from "react";
-import JobForm from "../components/JobForm";
+import JobForm from "./components/JobForm/JobForm";
 import "./App.css";
 
 function App(): JSX.Element {
