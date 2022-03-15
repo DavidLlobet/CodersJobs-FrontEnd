@@ -1,4 +1,5 @@
 import { ChangeEvent, useState } from "react";
+import "./RegisterForm.scss";
 
 const RegisterForm = (): JSX.Element => {
   const initialData = {
