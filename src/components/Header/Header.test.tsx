@@ -1,10 +1,21 @@
-import { render, screen } from "@testing-library/react";
-import { Header } from "react-bootstrap/lib/Modal";
+import { BrowserRouter as Router } from "react-router-dom";
+import Header from "./Header";
 
-describe("Given a Footer component", () => {
+import store from "../../redux/store/store";
+
+const { screen, render } = require("@testing-library/react");
+const { Provider } = require("react-redux");
+
+describe("Given a Header component", () => {
   describe("When it renders", () => {
     test("Then it should render", () => {
-      render(<Header />);
+      render(
+        <Router>
+          <Provider store={store}>
+            <Header />;
+          </Provider>
+        </Router>
+      );
       const header = screen.getByTitle("header");
 
       expect(header).toHaveClass("header");
