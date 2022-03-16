@@ -4,6 +4,7 @@ import { IJob } from "../../interfaces/interfaces";
 
 const JobForm = (): JSX.Element => {
   const initialJobDataForm: IJob = {
+    id: "",
     title: "",
     company: "",
     companyAnchor: "",
@@ -25,6 +26,7 @@ const JobForm = (): JSX.Element => {
     event.preventDefault();
 
     const actualJobData = {
+      id: "",
       title: jobData.title,
       company: jobData.company,
       companyAnchor: jobData.companyAnchor,
