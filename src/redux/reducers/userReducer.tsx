@@ -15,6 +15,14 @@ const userReducer = (
         isAuthenticated: false,
       };
       break;
+
+    case actionTypes.loginUser:
+      newUser = {
+        user: action.payload,
+        isAuthenticated: true,
+      };
+      break;
+
     default:
       newUser = { ...user };
   }
