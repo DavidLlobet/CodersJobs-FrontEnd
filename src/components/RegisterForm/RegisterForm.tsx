@@ -21,7 +21,7 @@ const RegisterForm = (): JSX.Element => {
     });
   };
 
-  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     registerUser(userData);
   };
