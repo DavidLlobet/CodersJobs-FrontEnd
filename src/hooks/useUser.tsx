@@ -1,7 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { IUser, IUserRegistered } from "../interfaces/interfaces";
 import { RootState } from "../redux/store/store";
-import { registerUserThunk, loginUserThunk } from "../redux/thunks/userThunk";
+import {
+  registerUserThunk,
+  loginUserThunk,
+  logoutUserThunk,
+} from "../redux/thunks/userThunk";
 
 const useUser = () => {
   const user = useSelector((store: RootState) => store.user);
@@ -15,10 +19,15 @@ const useUser = () => {
     dispatch(loginUserThunk(userLogin));
   };
 
+  const logoutUser = () => {
+    dispatch(logoutUserThunk());
+  };
+
   return {
     user,
     registerUser,
     loginUser,
+    logoutUser,
   };
 };
 

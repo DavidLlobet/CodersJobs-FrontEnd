@@ -2,7 +2,11 @@ import axios from "axios";
 import jwtDecode from "jwt-decode";
 import toast from "react-hot-toast";
 import { IUser, IUserRegistered } from "../../interfaces/interfaces";
-import { loginUserAction, registerUserAction } from "../actions/actionCreators";
+import {
+  loginUserAction,
+  logoutUserAction,
+  registerUserAction,
+} from "../actions/actionCreators";
 import { AppDispatch } from "../store/store";
 
 export const registerUserThunk =
@@ -41,3 +45,8 @@ export const loginUserThunk =
       });
     }
   };
+
+export const logoutUserThunk = () => (dispatch: AppDispatch) => {
+  localStorage.removeItem("loggedUser");
+  dispatch(logoutUserAction());
+};

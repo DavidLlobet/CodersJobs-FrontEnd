@@ -19,3 +19,7 @@ export const loginUserAction = (user: IUserRegistered) => ({
   type: actionTypes.loginUser,
   payload: user,
 });
+
+export const logoutUserAction = () => ({
+  type: actionTypes.logoutUser,
+});
