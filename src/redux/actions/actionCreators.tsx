@@ -1,5 +1,5 @@
 import actionTypes from "./actionTypes";
-import { IJob, IUser } from "../../interfaces/interfaces";
+import { IJob, IUser, IUserRegistered } from "../../interfaces/interfaces";
 
 export interface IJobs {
   jobs: Array<Object>;
@@ -19,3 +19,13 @@ export const registerUserAction = (user: IUser) => ({
   type: actionTypes.registerUser,
   payload: user,
 });
+
+export const loginUserAction = (user: IUserRegistered) => ({
+  type: actionTypes.loginUser,
+  payload: user,
+});
+
+export const logoutUserAction = () => ({
+  type: actionTypes.logoutUser,
+});
+

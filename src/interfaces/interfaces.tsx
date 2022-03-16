@@ -24,7 +24,7 @@ export interface IUser {
   isAdmin: boolean;
 }
 
-export interface IUserReducer extends IUser {
+export interface IUserRegistered extends IUser {
   isAuthenticated: boolean;
 }
 
