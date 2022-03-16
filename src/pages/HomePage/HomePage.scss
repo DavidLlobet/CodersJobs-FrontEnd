@@ -1,0 +1,22 @@
+.searchbox {
+  background-color: #87cefa;
+  height: 200px;
+  flex-direction: column;
+}
+
+.search-item {
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  margin: 10px auto;
+}
+
+.search-input {
+  border: 1px solid #87cefa;
+}
+
+.search-button {
+  background-color: #87cefa;
+  border: 1px solid white;
+  color: white;
+}
