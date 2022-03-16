@@ -1,15 +1,18 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
+import useUser from "../../hooks/useUser";
 import "./RegisterForm.scss";
 
 const RegisterForm = (): JSX.Element => {
   const initialData = {
     name: "",
     email: "",
-    username: "",
+    userName: "",
     password: "",
+    isAdmin: false,
   };
 
   const [userData, setUserData] = useState(initialData);
+  const { registerUser } = useUser();
 
   const changeUserData = (event: ChangeEvent<HTMLInputElement>) => {
     setUserData({
@@ -18,8 +21,18 @@ const RegisterForm = (): JSX.Element => {
     });
   };
 
+  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    registerUser(userData);
+  };
+
   return (
-    <form className="register-form" noValidate autoComplete="off">
+    <form
+      className="register-form"
+      noValidate
+      autoComplete="off"
+      onSubmit={onSubmit}
+    >
       <p className="register-form__text">Escribe tu nombre</p>
       <label htmlFor="name"></label>
       <input
@@ -43,20 +56,20 @@ const RegisterForm = (): JSX.Element => {
         onChange={changeUserData}
       ></input>
       <p className="login-form__text">Nombre de usuario</p>
-      <label htmlFor="username"></label>
+      <label htmlFor="userName"></label>
       <input
         type="text"
-        id="username"
-        name="username"
+        id="userName"
+        name="userName"
         className="login-form__input"
-        value={userData.username}
+        value={userData.userName}
         required
         onChange={changeUserData}
       ></input>
       <p className="login-form__text">Contraseña</p>
       <label htmlFor="password"></label>
       <input
-        type="text"
+        type="password"
         id="password"
         name="password"
         className="login-form__input"
