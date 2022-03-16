@@ -1,14 +1,20 @@
-import { IJob, IGetJobsAction, IAction} from "../../interfaces/interfaces";
+import {AnyAction} from 'redux';
+
+import { IJob} from "../../interfaces/interfaces";
 import actionTypes from "../actions/actionTypes";
 
 
 
-const jobsReducer = (jobs: IJob[] = [], action: IAction = {type: ''}): Array<IJob> => {
+const jobsReducer = (
+  jobs: IJob[] = [], 
+  action: AnyAction = {type: ''}
+): Array<IJob> => {
+
   let newJobs: IJob[];
 
   switch (action.type) {
     case actionTypes.getJobs:
-      newJobs = [...(action as IGetJobsAction).jobs];
+    newJobs = [...action.payload];
       break;
     default:
       newJobs = jobs;

@@ -1,16 +1,18 @@
 import { useCallback } from "react";
+import { Dispatch } from 'redux';
 import { useSelector, useDispatch } from "react-redux";
+
 import getJobsThunk from "../redux/thunks/jobsThunk";
+import { RootState} from "../redux/store/store";
 
 const useJobs = () => {
 
-  const jobs = useSelector( (store) => store.jobs);
-  const dispatch = useDispatch();
+  const jobs = useSelector( (store: RootState) => store.jobs);
+  const dispatch: Dispatch<any> = useDispatch();
 
   const getJobs = useCallback(
-    (jobs) => {
-    dispatch(getJobsThunk(jobs))
-  });
+    () => {dispatch(getJobsThunk())
+  }, [dispatch]);
 
   return { jobs, getJobs }
 

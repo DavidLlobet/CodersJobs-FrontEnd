@@ -1,4 +1,5 @@
 export interface IJob {
+  id: string,
   title: string,
   company: string,
   companyAnchor: string,
