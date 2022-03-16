@@ -23,6 +23,10 @@ const userReducer = (
       };
       break;
 
+    case actionTypes.logoutUser:
+      newUser = { user: {}, isAuthenticated: false };
+      break;
+
     default:
       newUser = { ...user };
   }
