@@ -16,7 +16,7 @@ export interface IJob {
 
 export interface IUser {
   name?: string;
-  username: string;
+  userName: string;
   password: string;
   email?: string;
   jobsApplied?: Array<Object>;
