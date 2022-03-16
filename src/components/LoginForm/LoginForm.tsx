@@ -16,12 +16,12 @@ const LoginForm = (): JSX.Element => {
     });
   };
 
-  return (
+  return (  
     <form className="login-form" noValidate autoComplete="off">
       <p className="login-form__text">Nombre de usuario</p>
       <label htmlFor="username"></label>
       <input
-        type="text"
+        type="text" 
         id="username"
         name="username"
         className="login-form__input"
