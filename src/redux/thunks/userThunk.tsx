@@ -1,11 +1,13 @@
 import axios from "axios";
+import jwtDecode from "jwt-decode";
 import toast from "react-hot-toast";
-import { IUser } from "../../interfaces/interfaces";
-import { registerUserAction } from "../actions/actionCreators";
+import { IUser, IUserRegistered } from "../../interfaces/interfaces";
+import { loginUserAction, registerUserAction } from "../actions/actionCreators";
+import { AppDispatch } from "../store/store";
 
-const registerUserThunk =
+export const registerUserThunk =
   (user: IUser) =>
-  async (dispatch: any): Promise<void> => {
+  async (dispatch: AppDispatch): Promise<void> => {
     const response = await axios.post(
       `${process.env.REACT_APP_URL_API_USER}/register`,
       user
@@ -18,4 +20,24 @@ const registerUserThunk =
     }
   };
 
-export default registerUserThunk;
+export const loginUserThunk =
+  (user: IUserRegistered) =>
+  async (dispatch: AppDispatch): Promise<void> => {
+    const response = await axios.post(
+      `${process.env.REACT_APP_URL_API_USER}/login`,
+      user
+    );
+    if (response.status === 200) {
+      const { ownerToken } = response.data;
+      const loggedUser: any = jwtDecode(ownerToken);
+      localStorage.setItem("loggedUser", JSON.stringify({ ownerToken }));
+      dispatch(loginUserAction(loggedUser));
+      toast.success("Te has logeado correctamente", {
+        duration: 3000,
+      });
+    } else {
+      toast.error("No has introducido tus datos correctamente", {
+        duration: 3000,
+      });
+    }
+  };
