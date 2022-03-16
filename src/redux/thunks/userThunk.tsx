@@ -28,9 +28,9 @@ export const loginUserThunk =
       user
     );
     if (response.status === 200) {
-      const { token } = response.data;
-      const loggedUser: any = jwtDecode(token);
-      localStorage.setItem("loggedUser", JSON.stringify({ token }));
+      const { ownerToken } = response.data;
+      const loggedUser: any = jwtDecode(ownerToken);
+      localStorage.setItem("loggedUser", JSON.stringify({ ownerToken }));
       dispatch(loginUserAction(loggedUser));
       toast.success("Te has logeado correctamente", {
         duration: 3000,
