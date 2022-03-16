@@ -1,8 +1,11 @@
 import { AnyAction } from "redux";
-import { IUserReducer } from "../../interfaces/interfaces";
+import { IUserRegistered } from "../../interfaces/interfaces";
 import actionTypes from "../actions/actionTypes";
 
-const userReducer = (user: IUserReducer, action: AnyAction = { type: "" }) => {
+const userReducer = (
+  user: IUserRegistered,
+  action: AnyAction = { type: "" }
+) => {
   let newUser;
 
   switch (action.type) {
@@ -12,6 +15,18 @@ const userReducer = (user: IUserReducer, action: AnyAction = { type: "" }) => {
         isAuthenticated: false,
       };
       break;
+
+    case actionTypes.loginUser:
+      newUser = {
+        user: action.payload,
+        isAuthenticated: true,
+      };
+      break;
+
+    case actionTypes.logoutUser:
+      newUser = { user: {}, isAuthenticated: false };
+      break;
+
     default:
       newUser = { ...user };
   }

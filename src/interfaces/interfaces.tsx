@@ -1,18 +1,18 @@
 export interface IJob {
-  id: string,
-  title: string,
-  company: string,
-  companyAnchor: string,
-  jobAnchor: string,
-  description: string,
-  contactPerson: string,
-  salary: number,
-  numberOfWorkers?: number,
-  startup: boolean,
-  location: string,
-  desiredProfile: string,
-  image?: string, 
-  releaseDate: Date,
+  id: string;
+  title: string;
+  company: string;
+  companyAnchor: string;
+  jobAnchor: string;
+  description: string;
+  contactPerson: string;
+  salary: number;
+  numberOfWorkers?: number;
+  startup: boolean;
+  location: string;
+  desiredProfile: string;
+  image?: string;
+  releaseDate: Date;
 }
 
 export interface IUser {
@@ -24,7 +24,7 @@ export interface IUser {
   isAdmin: boolean;
 }
 
-export interface IUserReducer extends IUser {
+export interface IUserRegistered extends IUser {
   isAuthenticated: boolean;
 }
 
