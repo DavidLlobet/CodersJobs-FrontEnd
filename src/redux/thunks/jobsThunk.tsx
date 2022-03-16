@@ -1,4 +1,4 @@
-import { getJobsAction } from "../actions/actionCreators";
+import { getJobsAction, createJobAction } from "../actions/actionCreators";
 import { IJob } from "../../interfaces/interfaces";
 import { AppDispatch } from "../store/store";
 
@@ -10,5 +10,6 @@ const getJobsThunk = () => async (dispatch: AppDispatch): Promise<void> => {
   dispatch(getJobsAction(jobs));
 };
 
+const createJobThunk = () => async()
 
 export default getJobsThunk;
