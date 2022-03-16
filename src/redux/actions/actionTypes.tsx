@@ -9,6 +9,8 @@ const actionTypes = {
   loadUser: 'LOAD_USER',
   logoutUser: 'LOGOUT_USER',
   loggedUser: 'LOGGED_USER',
+
+  changeSearchInput: "CHANGE_SEARCH_INPUT",
 };
 
 export default actionTypes;

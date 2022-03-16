@@ -8,7 +8,7 @@ const JobCard = ({
   job: {title}
 }: IJobProps): JSX.Element => (
     <li className='jobcard'>
-      <h1>{ title }</h1>
+      <h4>{ title }</h4>
     </li>
   );
 
