@@ -14,8 +14,3 @@ export const registerUserAction = (user: IUser) => ({
   type: actionTypes.registerUser,
   payload: user,
 });
-
-export const changeSearchInputAction = (searchInput: string) => ({
-  type: actionTypes.changeSearchInput,
-  payload: searchInput,
-});
