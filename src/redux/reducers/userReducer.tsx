@@ -1,8 +1,11 @@
 import { AnyAction } from "redux";
-import { IUserReducer } from "../../interfaces/interfaces";
+import { IUserRegistered } from "../../interfaces/interfaces";
 import actionTypes from "../actions/actionTypes";
 
-const userReducer = (user: IUserReducer, action: AnyAction = { type: "" }) => {
+const userReducer = (
+  user: IUserRegistered,
+  action: AnyAction = { type: "" }
+) => {
   let newUser;
 
   switch (action.type) {
