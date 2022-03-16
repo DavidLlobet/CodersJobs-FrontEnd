@@ -10,7 +10,3 @@ export const getJobsAction = (jobs: IJob[]) => ({
   payload: jobs,
 });
 
-export const changeSearchInputAction = (searchInput: string) => ({
-  type: actionTypes.changeSearchInput,
-  payload: searchInput,
-});
