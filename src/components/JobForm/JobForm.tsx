@@ -1,4 +1,5 @@
 import { useState, FormEvent, ChangeEvent } from "react";
+import "./JobForm.scss";
 
 const JobForm = (): JSX.Element => {
   interface Job {
@@ -35,56 +36,58 @@ const JobForm = (): JSX.Element => {
 
   return (
     <div className="form-container">
-      <form className="form-container__form-data text" onSubmit={onSubmitData}>
-        <label htmlFor="title" className="label">
-          Title
+      <form className="job-form" onSubmit={onSubmitData}>
+        <div className="job-form__field">
+          <label htmlFor="title" className="job-form__label">
+            Title
+          </label>
           <input
             type="text"
-            className="text"
+            className="job-form__input"
             value={jobData.title}
-            placeholder="Position offered"
+            placeholder="Título de la posición abierta"
             id="title"
             onChange={onChangeJobData}
             required
           />
-        </label>
-        <label htmlFor="company" className="label">
+        </div>
+        <label htmlFor="company" className="job-form__label">
           Organization
           <input
             type="text"
-            className="text"
+            className="job-form__input"
             value={jobData.company}
-            placeholder="Your organization"
+            placeholder="Nombre de tu organización"
             id="company"
             onChange={onChangeJobData}
             required
           />
         </label>
-        <label htmlFor="location" className="label">
+        <label htmlFor="location" className="job-form__label">
           Location
           <input
             type="text"
-            className="text"
+            className="job-form__input"
             value={jobData.location}
-            placeholder="Where are you?"
+            placeholder="Dónde estáis?"
             id="location"
             onChange={onChangeJobData}
             required
           />
         </label>
-        <label htmlFor="salary" className="label">
+        <label htmlFor="salary" className="job-form__label">
           Salary
           <input
             type="text"
-            className="text"
+            className="job-form__input"
             value={jobData.salary}
-            placeholder="Salary"
+            placeholder="Salario"
             id="salary"
             onChange={onChangeJobData}
             required
           />
         </label>
-        <input className="button" type="submit" value="Publish!" />
+        <input className="job-form__button" type="submit" value="Publish!" />
       </form>
     </div>
   );
