@@ -22,25 +22,19 @@ const HomePage = (): JSX.Element => {
   }, [getJobs]);
 
 
-
-  
   let filteredJobs: IJob[];
-
+  let filter = false;
+  
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    // if (searchInput.length > 0 ) {
-    //   filteredJobs = jobs.filter ( job => job.title.toLowerCase().includes(searchInput.toLowerCase()) );
-    // } else {
-    //   filteredJobs = jobs;
-    // }
+    filter = true;
   };
 
-    if (searchInput.length > 0 ) {
-      filteredJobs = jobs.filter ( job => job.title.toLowerCase().includes(searchInput.toLowerCase()) );
-    } else {
-      filteredJobs = jobs;
-    }
-  
+  if (filter) {
+    filteredJobs = jobs.filter ( job => job.title.toLowerCase().includes(searchInput.toLowerCase()) );
+  } else {
+    filteredJobs = jobs;
+  }
 
 
   return (
@@ -60,10 +54,8 @@ const HomePage = (): JSX.Element => {
             Buscar 
           </button>
         </form> 
-        <ul className="listado">
-          {filteredJobs && filteredJobs.length 
-            ? filteredJobs.map( (job) => <JobCard key={job.id} job={job} /> )
-            : "The data is loading"  
+        <ul className="listado center">
+          {filteredJobs.map( (job) => <JobCard key={job.id} job={job} /> )
           }
         </ul>
       </div>

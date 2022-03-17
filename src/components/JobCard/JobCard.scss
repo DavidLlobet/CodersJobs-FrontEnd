@@ -3,6 +3,24 @@
 }
 
 .job-card {
+  width: 310px;
+  height: 130px;
   display: flex;
   flex-direction: row;
+  border-radius: 10px;
+  background-color: #ffffff;
+  margin: 15px auto;
+}
+
+.job-details {
+  margin-bottom: 5px;
+}
+
+.job-title {
+  color: #87cefa;
+  font-weight: bold;
+}
+
+.company-logo {
+  margin: 10px;
 }

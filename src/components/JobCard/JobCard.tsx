@@ -6,14 +6,16 @@ interface IJobProps {
 }
 
 const JobCard = ({ 
-  job: {title, company, location}
+  job: {title,company,location,image}
 }: IJobProps): JSX.Element => (
     <li className='job-item'>
       <div className="job-card">
-        <div className="company-logo"></div>
+        <div className="company-logo"> <img alt="companylogo" src={image} width="50" height="50" /> </div>
         <div className="job-info">
-          <h4>{ title } </h4>
-          <p> { company } </p>
+          <div className="job-details">
+            <p className="job-title">{ title } </p>
+            <p> { company } </p>
+          </div>
           <p> { location } </p>
         </div>
       </div>

@@ -6,7 +6,7 @@
 
 .search-item {
   width: 200px;
-  height: 50px;
+  height: 45px;
   border-radius: 10px;
   margin: 10px auto;
 }
@@ -19,4 +19,9 @@
   background-color: #87cefa;
   border: 1px solid white;
   color: white;
+}
+
+.listado {
+  flex-direction: column;
+  flex-wrap: wrap;
 }
