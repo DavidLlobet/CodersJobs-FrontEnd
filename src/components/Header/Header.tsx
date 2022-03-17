@@ -38,6 +38,10 @@ const Header = (): JSX.Element => {
     navigate("/my-profile");
   };
 
+  const addJobClick = () => {
+    navigate("/job/publish");
+  };
+
   return (
     <div className="header" title="header">
       <div className="header__title" onClick={homeClick}>
@@ -51,15 +55,24 @@ const Header = (): JSX.Element => {
       ) : (
         ""
       )}
+      {pathname !== "/my-profile" && isAuthenticated === true ? (
+        <button className="header__my-profile" onClick={myProfileClick}>
+          Mi perfil
+        </button>
+      ) : (
+        ""
+      )}
+      {pathname === "/my-profile" && isAuthenticated === true ? (
+        <button className="header__add-job" onClick={addJobClick}>
+          Añadir job
+        </button>
+      ) : (
+        ""
+      )}
       {isAuthenticated === true ? (
-        <>
-          <button className="header__my-profile" onClick={myProfileClick}>
-            Mi perfil
-          </button>
-          <button className="header__logout" onClick={logoutClick}>
-            <FontAwesomeIcon icon={faRightFromBracket} />
-          </button>
-        </>
+        <button className="header__logout" onClick={logoutClick}>
+          <FontAwesomeIcon icon={faRightFromBracket} />
+        </button>
       ) : (
         ""
       )}

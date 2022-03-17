@@ -36,6 +36,15 @@
     width: 80px;
   }
 
+  &__add-job {
+    background-color: #fff;
+    border-color: #87cefa;
+    border-radius: 20px;
+    font-family: inherit;
+    font-size: 16px;
+    padding: 6px;
+  }
+
   &__logout {
     background-color: #ffffff;
     border: none;
