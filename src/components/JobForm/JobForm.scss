@@ -1,7 +1,7 @@
 .job-form {
   display: flex;
   flex-direction: column;
-
+  margin-top: 20px;
   // &__field {
   //   float: left;
   //   margin-left: 20px;
@@ -20,6 +20,7 @@
     font-weight: 700;
     margin-left: 47px;
     margin-bottom: 12px;
+    margin-top: 12px;
   }
 
   &__input {
@@ -31,6 +32,14 @@
     margin-left: 40px;
     width: 280px;
     padding: 9px;
+    &--large {
+      font-family: "Roboto", sans-serif;
+      height: 120px;
+    }
+    &--salary {
+      font-family: "Roboto", sans-serif;
+      width: 230px;
+    }
   }
 
   &__input2 {
@@ -45,6 +54,15 @@
 
   &__checkbox {
     float: inline-start;
+  }
+
+  &__salary {
+    display: flex;
+    &__euro {
+      font-weight: 500;
+      margin-left: 32px;
+      margin-top: 8px;
+    }
   }
 
   &__button {
