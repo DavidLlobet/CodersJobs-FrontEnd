@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import JobCard from "../../components/JobCard/JobCard";
 import useJobs from "../../hooks/useJobs";
-import { IJob } from "../../interfaces/interfaces";
 import './HomePage.scss';
 
 
@@ -12,30 +11,24 @@ const HomePage = (): JSX.Element => {
 
   const { jobs, getJobs} = useJobs();
   const [ searchInput, setSearchInput ] = useState('');
+  const [ applyFilter, setApplyFilter ] = useState(false);
 
   const handleChange = (event: any) => {
-    setSearchInput(event.target.value);
+    setSearchInput(event.target.value);    
   };
   
+  const handleOnKeyDown = () => {
+    setApplyFilter(false);
+  };
+
   useEffect(()=>{
-    getJobs()
+    getJobs();
   }, [getJobs]);
 
-
-  let filteredJobs: IJob[];
-  let filter = false;
-  
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    filter = true;
+    setApplyFilter(true);
   };
-
-  if (filter) {
-    filteredJobs = jobs.filter ( job => job.title.toLowerCase().includes(searchInput.toLowerCase()) );
-  } else {
-    filteredJobs = jobs;
-  }
-
 
   return (
     <>
@@ -47,6 +40,7 @@ const HomePage = (): JSX.Element => {
             id="searchjob"
             value={searchInput}
             onChange={handleChange}
+            onKeyDown={handleOnKeyDown}
             placeholder="Titulo trabajo"
           ></input>
           <button type='submit' className="search-button search-item"> 
@@ -55,7 +49,10 @@ const HomePage = (): JSX.Element => {
           </button>
         </form> 
         <ul className="listado center">
-          {filteredJobs.map( (job) => <JobCard key={job.id} job={job} /> )
+          {applyFilter?
+          jobs.filter ( job => job.title.toLowerCase().includes(searchInput.toLowerCase()))
+          .map( (job) => <JobCard key={job.id} job={job} /> )
+          : jobs.map( (job) => <JobCard key={job.id} job={job} /> )
           }
         </ul>
       </div>
