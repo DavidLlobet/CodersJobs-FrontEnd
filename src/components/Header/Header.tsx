@@ -51,15 +51,22 @@ const Header = (): JSX.Element => {
       ) : (
         ""
       )}
+      {pathname !== "/my-profile" && isAuthenticated === true ? (
+        <button className="header__my-profile" onClick={myProfileClick}>
+          Mi perfil
+        </button>
+      ) : (
+        ""
+      )}
+      {pathname === "/my-profile" && isAuthenticated === true ? (
+        <button className="header__add-job">Añadir job</button>
+      ) : (
+        ""
+      )}
       {isAuthenticated === true ? (
-        <>
-          <button className="header__my-profile" onClick={myProfileClick}>
-            Mi perfil
-          </button>
-          <button className="header__logout" onClick={logoutClick}>
-            <FontAwesomeIcon icon={faRightFromBracket} />
-          </button>
-        </>
+        <button className="header__logout" onClick={logoutClick}>
+          <FontAwesomeIcon icon={faRightFromBracket} />
+        </button>
       ) : (
         ""
       )}
