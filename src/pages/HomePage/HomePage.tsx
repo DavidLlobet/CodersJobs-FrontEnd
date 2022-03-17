@@ -1,6 +1,7 @@
 import { useEffect, useState} from "react";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router";
 
 import JobCard from "../../components/JobCard/JobCard";
 import useJobs from "../../hooks/useJobs";
@@ -8,8 +9,10 @@ import { IJob } from "../../interfaces/interfaces";
 import './HomePage.scss';
 
 
+
 const HomePage = (): JSX.Element => {
 
+  const navigate = useNavigate();
   const { jobs, getJobs} = useJobs();
   const [ searchInput, setSearchInput ] = useState('');
 
@@ -35,7 +38,10 @@ const HomePage = (): JSX.Element => {
   } else {
     filteredJobs = jobs;
   }
-
+  
+  const goToDetail = (id: string) => {
+    navigate(`/jobs/${id}`);
+  }
 
   return (
     <>
@@ -55,7 +61,12 @@ const HomePage = (): JSX.Element => {
           </button>
         </form> 
         <ul className="listado center">
-          {filteredJobs.map( (job) => <JobCard key={job.id} job={job} /> )
+          {filteredJobs.map( (job) => 
+            <JobCard 
+              key={job.id} 
+              job={job}
+              actionOnClick={()=>{goToDetail(job.id)}} 
+            /> )
           }
         </ul>
       </div>
