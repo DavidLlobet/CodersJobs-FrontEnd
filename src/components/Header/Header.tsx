@@ -1,3 +1,5 @@
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import "./Header.scss";
 
@@ -22,7 +24,7 @@ const Header = (): JSX.Element => {
       </div>
       {pathname !== "/login" ? (
         <button className="header__login" onClick={loginClick}>
-          Entra
+          <FontAwesomeIcon icon={faUser} /> 
         </button>
       ) : (
         ""
