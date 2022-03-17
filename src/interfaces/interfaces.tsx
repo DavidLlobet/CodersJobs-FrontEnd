@@ -6,8 +6,8 @@ export interface IJob {
   jobAnchor: string;
   description: string;
   contactPerson: string;
-  salary: number;
-  numberOfWorkers?: number;
+  salary: number | undefined;
+  numberOfWorkers?: number | undefined;
   startup: boolean;
   location: string;
   desiredProfile: string;

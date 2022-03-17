@@ -14,12 +14,9 @@ const useJobs = () => {
     dispatch(getJobsThunk());
   }, [dispatch]);
 
-  const createJob = useCallback(
-    (job: IJob) => {
-      dispatch(createJobThunk(job));
-    },
-    [dispatch]
-  );
+  const createJob = (job: IJob) => {
+    dispatch(createJobThunk(job));
+  };
 
   return { jobs, getJobs, createJob };
 };

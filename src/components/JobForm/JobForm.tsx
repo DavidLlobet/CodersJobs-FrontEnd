@@ -1,6 +1,7 @@
 import { useState, FormEvent, ChangeEvent } from "react";
 import "./JobForm.scss";
 import { useNavigate } from "react-router";
+// import CurrencyInput from "react-currency-input-field";
 import { IJob } from "../../interfaces/interfaces";
 import useJobs from "../../hooks/useJobs";
 import paths from "../../paths/paths";
@@ -16,8 +17,8 @@ const JobForm = (): JSX.Element => {
     jobAnchor: "",
     description: "",
     contactPerson: "",
-    salary: 0,
-    numberOfWorkers: 0,
+    salary: undefined,
+    numberOfWorkers: undefined,
     startup: false,
     location: "",
     desiredProfile: "",
@@ -52,7 +53,9 @@ const JobForm = (): JSX.Element => {
     navigate(paths.getJobs);
   };
 
-  const onChangeJobData = (event: ChangeEvent<HTMLInputElement>) => {
+  const onChangeJobData = (
+    event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
+  ) => {
     SetJobData({ ...jobData, [event.target.id]: event.target.value });
   };
 
@@ -65,6 +68,7 @@ const JobForm = (): JSX.Element => {
           </label>
           <input
             type="text"
+            autoComplete="off"
             className="job-form__input"
             value={jobData.title}
             placeholder="Título de la posición abierta"
@@ -78,6 +82,7 @@ const JobForm = (): JSX.Element => {
           </label>
           <input
             type="text"
+            autoComplete="off"
             className="job-form__input"
             value={jobData.company}
             placeholder="Nombre de tu organización"
@@ -86,15 +91,16 @@ const JobForm = (): JSX.Element => {
           />
         </div>
         <div className="job-form__field">
-          <label htmlFor="company-anchor" className="job-form__label">
+          <label htmlFor="companyAnchor" className="job-form__label">
             Vuestra web
           </label>
           <input
             type="text"
+            autoComplete="off"
             className="job-form__input"
             value={jobData.companyAnchor}
             placeholder="Enlace a la web de tu organización"
-            id="company-anchor"
+            id="companyAnchor"
             onChange={onChangeJobData}
           />
         </div>
@@ -103,7 +109,8 @@ const JobForm = (): JSX.Element => {
             Logo
           </label>
           <input
-            type="text"
+            type="file"
+            autoComplete="off"
             className="job-form__input"
             value={jobData.image}
             placeholder="Logo de tu organización (opcional)"
@@ -117,6 +124,7 @@ const JobForm = (): JSX.Element => {
           </label>
           <input
             type="text"
+            autoComplete="off"
             className="job-form__input"
             value={jobData.location}
             placeholder="Dónde estáis?"
@@ -128,9 +136,8 @@ const JobForm = (): JSX.Element => {
           <label htmlFor="description" className="job-form__label">
             Descripción
           </label>
-          <input
-            type="text"
-            className="job-form__input"
+          <textarea
+            className="job-form__input job-form__input--large "
             value={jobData.description}
             placeholder="Detalles del puesto"
             id="description"
@@ -139,33 +146,35 @@ const JobForm = (): JSX.Element => {
         </div>
 
         <div className="job-form__field">
-          <label htmlFor="contact" className="job-form__label">
+          <label htmlFor="contactPerson" className="job-form__label">
             Contacto
           </label>
           <input
             type="text"
+            autoComplete="off"
             className="job-form__input"
             value={jobData.contactPerson}
             placeholder="Persona de contacto (link)"
-            id="contact"
+            id="contactPerson"
             onChange={onChangeJobData}
           />
         </div>
 
         <div className="job-form__field">
-          <label htmlFor="workers" className="job-form__label">
+          <label htmlFor="numberOfWorkers" className="job-form__label">
             Número de trabajadores
           </label>
           <input
-            type="text"
+            type="number"
+            autoComplete="off"
             className="job-form__input"
             value={jobData.numberOfWorkers}
             placeholder="Plantilla (opcional)"
-            id="workers"
+            id="numberOfWorkers"
             onChange={onChangeJobData}
           />
         </div>
-        <div className="job-form__field">
+        <div className="job-form__field job-form__salary">
           <input
             type="checkbox"
             className="job-form__input2 job-form__checkbox"
@@ -179,15 +188,14 @@ const JobForm = (): JSX.Element => {
         </div>
 
         <div className="job-form__field">
-          <label htmlFor="desired-profile" className="job-form__label">
+          <label htmlFor="desiredProfile" className="job-form__label">
             Perfil deseado
           </label>
-          <input
-            type="text"
-            className="job-form__input"
+          <textarea
+            className="job-form__input job-form__input--large"
             value={jobData.desiredProfile}
             placeholder="Qué buscáis?"
-            id="desired-profile"
+            id="desiredProfile"
             onChange={onChangeJobData}
           />
         </div>
@@ -195,25 +203,30 @@ const JobForm = (): JSX.Element => {
           <label htmlFor="salary" className="job-form__label">
             Salario
           </label>
-          <input
-            type="text"
-            className="job-form__input"
-            value={jobData.salary}
-            placeholder="Salario"
-            id="salary"
-            onChange={onChangeJobData}
-          />
+          <div className="job-form__salary">
+            <input
+              type="number"
+              autoComplete="off"
+              className="job-form__input job-form__input--salary"
+              value={jobData.salary}
+              placeholder="Salario"
+              id="salary"
+              onChange={onChangeJobData}
+            />
+            <span className="job-form__salary__euro">€</span>
+          </div>
         </div>
         <div className="job-form__field">
-          <label htmlFor="job-anchor" className="job-form__label">
+          <label htmlFor="jobAnchor" className="job-form__label">
             Enlace
           </label>
           <input
             type="text"
+            autoComplete="off"
             className="job-form__input"
             value={jobData.jobAnchor}
             placeholder="Link a vuestra oferta"
-            id="job-anchor"
+            id="jobAnchor"
             onChange={onChangeJobData}
           />
         </div>
