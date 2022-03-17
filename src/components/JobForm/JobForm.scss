@@ -1,0 +1,81 @@
+.job-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  // &__field {
+  //   float: left;
+  //   margin-left: 20px;
+  // }
+
+  &__label {
+    display: block;
+    width: 180px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-left: 47px;
+    margin-bottom: 12px;
+  }
+  &__label2 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-left: 47px;
+    margin-bottom: 12px;
+    margin-top: 12px;
+  }
+
+  &__input {
+    display: block;
+    border: none;
+    border-radius: 10px;
+    height: 35px;
+    margin-bottom: 22px;
+    margin-left: 40px;
+    width: 280px;
+    padding: 9px;
+    &--large {
+      font-family: "Roboto", sans-serif;
+      height: 120px;
+    }
+    &--salary {
+      font-family: "Roboto", sans-serif;
+      width: 230px;
+    }
+  }
+
+  &__input2 {
+    display: block;
+    border: none;
+    border-radius: 10px;
+    height: 35px;
+    margin-bottom: 22px;
+    margin-left: 40px;
+    width: 25px;
+  }
+
+  &__checkbox {
+    float: inline-start;
+  }
+
+  &__salary {
+    display: flex;
+    &__euro {
+      font-weight: 500;
+      margin-left: 32px;
+      margin-top: 8px;
+    }
+  }
+
+  &__button {
+    background-color: #87cefa;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    height: 35px;
+    line-height: 21px;
+    margin-bottom: 22px;
+    margin-left: 37px;
+    width: 280px;
+  }
+}

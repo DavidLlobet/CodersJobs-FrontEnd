@@ -1,13 +1,21 @@
-import React, { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
+import useUser from "../../hooks/useUser";
 import "./LoginForm.scss";
 
 const LoginForm = (): JSX.Element => {
   const initialData = {
-    username: "",
+    name: "",
+    email: "",
+    userName: "",
     password: "",
+    isAuthenticated: false,
+    isAdmin: false,
   };
 
   const [userData, setUserData] = useState(initialData);
+  const { loginUser } = useUser();
+  const navigate = useNavigate();
 
   const changeUserData = (event: ChangeEvent<HTMLInputElement>) => {
     setUserData({
@@ -16,16 +24,30 @@ const LoginForm = (): JSX.Element => {
     });
   };
 
+  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    loginUser(userData);
+    setTimeout(() => {
+      navigate("/");
+    }, 2000);
+  };
+
   return (
-    <form className="login-form" noValidate autoComplete="off">
+    <form
+      className="login-form"
+      aria-label="login-form"
+      noValidate
+      autoComplete="off"
+      onSubmit={onSubmit}
+    >
       <p className="login-form__text">Nombre de usuario</p>
-      <label htmlFor="username"></label>
+      <label htmlFor="userName"></label>
       <input
         type="text"
-        id="username"
-        name="username"
+        id="userName"
+        name="userName"
         className="login-form__input"
-        value={userData.username}
+        value={userData.userName}
         required
         onChange={changeUserData}
       ></input>

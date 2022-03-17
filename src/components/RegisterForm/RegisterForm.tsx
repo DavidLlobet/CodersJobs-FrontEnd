@@ -29,6 +29,7 @@ const RegisterForm = (): JSX.Element => {
   return (
     <form
       className="register-form"
+      aria-label="register-form"
       noValidate
       autoComplete="off"
       onSubmit={onSubmit}
