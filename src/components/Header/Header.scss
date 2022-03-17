@@ -38,9 +38,11 @@
 
   &__add-job {
     background-color: #fff;
-    border: none;
+    border-color: #87cefa;
+    border-radius: 20px;
     font-family: inherit;
     font-size: 16px;
+    padding: 6px;
   }
 
   &__logout {
