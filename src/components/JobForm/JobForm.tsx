@@ -230,7 +230,9 @@ const JobForm = (): JSX.Element => {
             onChange={onChangeJobData}
           />
         </div>
-        <input className="job-form__button" type="submit" value="Publicar!" />
+        <div className="job-form__field">
+          <input className="job-form__button" type="submit" value="Publicar!" />
+        </div>
       </form>
     </div>
   );
