@@ -1,9 +1,19 @@
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import "./Header.scss";
 
 const Header = (): JSX.Element => {
+  let isAuthenticated;
+
+  const tokenUser = localStorage.getItem("loggedUser");
+
+  if (tokenUser) {
+    isAuthenticated = true;
+  } else {
+    isAuthenticated = false;
+  }
+
   const navigate = useNavigate();
 
   const { pathname } = window.location;
@@ -24,7 +34,14 @@ const Header = (): JSX.Element => {
       </div>
       {pathname !== "/login" ? (
         <button className="header__login" onClick={loginClick}>
-          <FontAwesomeIcon icon={faUser} /> 
+          <FontAwesomeIcon icon={faUser} />
+        </button>
+      ) : (
+        ""
+      )}
+      {isAuthenticated === true ? (
+        <button className="header__logout">
+          <FontAwesomeIcon icon={faRightFromBracket} />
         </button>
       ) : (
         ""
