@@ -15,7 +15,7 @@ const LoginPage = (): JSX.Element => {
   };
   return (
     <>
-      <p className="title">Iniciar sesión</p>
+      <h1 className="title">Iniciar sesión</h1>
       <LoginForm />
       {state === false ? (
         <div className="register">

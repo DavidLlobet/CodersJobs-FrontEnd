@@ -15,7 +15,7 @@ const Header = (): JSX.Element => {
   };
 
   return (
-    <div className="header">
+    <div className="header" title="header">
       <div className="header__title" onClick={homeClick}>
         <p className="header__title1">Coders</p>
         <p className="header__title2">Jobs</p>

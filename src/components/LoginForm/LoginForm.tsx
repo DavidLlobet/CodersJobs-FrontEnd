@@ -35,6 +35,7 @@ const LoginForm = (): JSX.Element => {
   return (
     <form
       className="login-form"
+      aria-label="login-form"
       noValidate
       autoComplete="off"
       onSubmit={onSubmit}
