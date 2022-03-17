@@ -34,6 +34,10 @@ const Header = (): JSX.Element => {
     navigate("/");
   };
 
+  const myProfileClick = () => {
+    navigate("/my-profile");
+  };
+
   return (
     <div className="header" title="header">
       <div className="header__title" onClick={homeClick}>
@@ -49,7 +53,9 @@ const Header = (): JSX.Element => {
       )}
       {isAuthenticated === true ? (
         <>
-          <button className="header__my-profile">Mi perfil</button>
+          <button className="header__my-profile" onClick={myProfileClick}>
+            Mi perfil
+          </button>
           <button className="header__logout" onClick={logoutClick}>
             <FontAwesomeIcon icon={faRightFromBracket} />
           </button>
