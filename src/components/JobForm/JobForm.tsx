@@ -1,8 +1,13 @@
 import { useState, FormEvent, ChangeEvent } from "react";
 import "./JobForm.scss";
+import { useNavigate } from "react-router";
 import { IJob } from "../../interfaces/interfaces";
+import useJobs from "../../hooks/useJobs";
+import paths from "../../paths/paths";
 
 const JobForm = (): JSX.Element => {
+  const { createJob } = useJobs();
+
   const initialJobDataForm: IJob = {
     id: "",
     title: "",
@@ -20,12 +25,13 @@ const JobForm = (): JSX.Element => {
     releaseDate: new Date(Date.now()),
   };
 
+  const navigate = useNavigate();
   const [jobData, SetJobData] = useState(initialJobDataForm);
 
   const onSubmitData = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const actualJobData = {
+    const newJobData = {
       id: "",
       title: jobData.title,
       company: jobData.company,
@@ -42,7 +48,8 @@ const JobForm = (): JSX.Element => {
       releaseDate: new Date(Date.now()),
     };
 
-    SetJobData(actualJobData);
+    createJob(newJobData);
+    navigate(paths.getJobs);
   };
 
   const onChangeJobData = (event: ChangeEvent<HTMLInputElement>) => {
