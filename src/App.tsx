@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import paths from "./paths/paths";
 import JobFormPage from "./pages/JobFormPage/JobFormPage";
+import MyProfilePage from "./pages/MyProfilePage/MyProfilePage";
 
 function App(): JSX.Element {
   return (
@@ -19,6 +20,7 @@ function App(): JSX.Element {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/my-profile" element={<MyProfilePage />} />
             <Route path={paths.postJob} element={<JobFormPage />} />
           </Routes>
           <Footer />

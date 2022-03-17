@@ -1,6 +1,7 @@
 import { faUser, faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
+import useUser from "../../hooks/useUser";
 import "./Header.scss";
 
 const Header = (): JSX.Element => {
@@ -15,6 +16,7 @@ const Header = (): JSX.Element => {
   }
 
   const navigate = useNavigate();
+  const { logoutUser } = useUser();
 
   const { pathname } = window.location;
 
@@ -26,13 +28,23 @@ const Header = (): JSX.Element => {
     navigate("/login");
   };
 
+  const logoutClick = (event: any) => {
+    event.preventDefault();
+    logoutUser();
+    navigate("/");
+  };
+
+  const myProfileClick = () => {
+    navigate("/my-profile");
+  };
+
   return (
     <div className="header" title="header">
       <div className="header__title" onClick={homeClick}>
         <p className="header__title1">Coders</p>
         <p className="header__title2">Jobs</p>
       </div>
-      {pathname !== "/login" ? (
+      {pathname !== "/login" && isAuthenticated === false ? (
         <button className="header__login" onClick={loginClick}>
           <FontAwesomeIcon icon={faUser} />
         </button>
@@ -40,9 +52,14 @@ const Header = (): JSX.Element => {
         ""
       )}
       {isAuthenticated === true ? (
-        <button className="header__logout">
-          <FontAwesomeIcon icon={faRightFromBracket} />
-        </button>
+        <>
+          <button className="header__my-profile" onClick={myProfileClick}>
+            Mi perfil
+          </button>
+          <button className="header__logout" onClick={logoutClick}>
+            <FontAwesomeIcon icon={faRightFromBracket} />
+          </button>
+        </>
       ) : (
         ""
       )}
