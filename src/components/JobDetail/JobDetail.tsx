@@ -16,9 +16,12 @@ const JobDetail = ():JSX.Element => {
   return (
     <div className="detail">
       <div className='detail-header'> 
-        <p className='detail-job-title'> {job.title} </p>
-        <p> {job.company} - {job.location} </p> 
-        <p> {job.numberOfWorkers} employees </p>
+        <div className='job-summary'>
+          <p className='detail-job-title'> {job.title} </p>
+          <p> {job.company} - {job.location} </p> 
+          <p className='detail-number-employees'> {job.numberOfWorkers} employees </p>
+        </div>
+        <button className='job-application'> Inscribirse </button>
       </div>
       <ul className='detail-info'> 
         <li className='detail-item'> 
