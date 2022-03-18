@@ -1,3 +1,8 @@
+.detail {
+  display: flex;
+  flex-direction: column;
+}
+
 .detail-header {
   background-color: #87cefa;
   height: 135px;
@@ -13,7 +18,20 @@
 .detail-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: baseline;
   background-color: #fff;
   padding: 15px 15px;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+  padding: 0 15px;
+  align-self: flex-start;
+}
+
+.detail-item-title {
+  font-weight: bold;
+  padding: 10px 0;
 }
