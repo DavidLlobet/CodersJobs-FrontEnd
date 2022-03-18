@@ -20,7 +20,7 @@ function App(): JSX.Element {
           <Header />
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="" element={<DetailPage />} />
+            <Route path="/jobs/:id" element={<DetailPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/my-profile" element={<MyProfilePage />} />
             <Route path={paths.postJob} element={<JobFormPage />} />

@@ -10,6 +10,11 @@ export const getJobsAction = (jobs: IJob[]) => ({
   payload: jobs,
 });
 
+export const loadJobAction = (job: IJob) => ({
+  type: actionTypes.loadJob,
+  payload: job,
+});
+
 export const createJobAction = (job: IJob) => ({
   type: actionTypes.createJob,
   payload: job,

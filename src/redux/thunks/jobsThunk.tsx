@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { getJobsAction, createJobAction } from "../actions/actionCreators";
+import { getJobsAction, loadJobAction, createJobAction } from "../actions/actionCreators";
 import { IJob } from "../../interfaces/interfaces";
 import { AppDispatch } from "../store/store";
 import paths from "../../paths/paths";
@@ -14,6 +14,12 @@ export const getJobsThunk =
     const jobs: IJob[] = await response.json();
     dispatch(getJobsAction(jobs));
   };
+
+export const loadJobThunk = (jobId: string) => async (dispatch: AppDispatch):Promise<void> => {
+  const response = await fetch(`${apiUrl}jobs/${jobId}`);
+  const job:IJob = await response.json();
+  dispatch(loadJobAction(job));
+};
 
 export const createJobThunk =
   (job: IJob) =>
