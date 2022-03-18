@@ -1,5 +1,6 @@
 const actionTypes = {
   getJobs: 'GET_JOBS',
+  loadJob: 'LOAD_JOB',
   createJob: 'CREATE_JOB',
   deleteJob: 'DELETE_JOB',
   updateJob: 'UPDATE_JOB',
