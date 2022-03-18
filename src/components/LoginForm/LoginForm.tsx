@@ -29,7 +29,7 @@ const LoginForm = (): JSX.Element => {
     loginUser(userData);
     setTimeout(() => {
       navigate("/");
-    }, 2000);
+    }, 500);
   };
 
   return (
