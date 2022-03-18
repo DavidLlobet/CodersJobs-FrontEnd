@@ -20,14 +20,24 @@ const JobDetail = ():JSX.Element => {
         <p> {job.company} - {job.location} </p> 
         <p> {job.numberOfWorkers} employees </p>
       </div>
-      <div className='detail-info'> 
-        <div className='detail-description'> 
-          <span> Descripcion </span>
+      <ul className='detail-info'> 
+        <li className='detail-item'> 
+          <span className='detail-item-title'> Descripcion </span>
           {job.description} 
-        </div> 
-        <div> {job.desiredProfile} </div>
-        <div> {job.contactPerson} </div>  
-      </div>
+        </li> 
+        <li className='detail-item'> 
+          <span className='detail-item-title'> Perfil buscado </span>
+          {job.desiredProfile} 
+        </li>
+        <li className='detail-item'> 
+          <span className='detail-item-title'> Que ofrecemos </span>
+          {job.salary} 
+        </li>
+        <li className='detail-item'>
+          <span className='detail-item-title'> Contacto persona </span> 
+          {job.contactPerson} 
+        </li>  
+      </ul>
     </div>
 )};
 
