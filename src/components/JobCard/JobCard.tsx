@@ -2,13 +2,15 @@ import { IJob } from "../../interfaces/interfaces";
 import './JobCard.scss';
 
 interface IJobProps {
-  job: IJob;
+  job: IJob,
+  actionOnClick: any,
 }
 
 const JobCard = ({ 
-  job: {title,company,location,image}
+  job: {title,company,location,image},
+  actionOnClick,
 }: IJobProps): JSX.Element => (
-    <li className='job-item'>
+    <li className='job-item' onClick={actionOnClick}>
       <div className="job-card">
         <div className="company-logo"> <img alt="companylogo" src={image} width="50" height="50" /> </div>
         <div className="job-info">

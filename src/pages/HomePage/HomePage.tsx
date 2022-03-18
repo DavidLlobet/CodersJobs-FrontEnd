@@ -1,14 +1,17 @@
 import { useEffect, useState} from "react";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router";
 
 import JobCard from "../../components/JobCard/JobCard";
 import useJobs from "../../hooks/useJobs";
 import './HomePage.scss';
 
 
+
 const HomePage = (): JSX.Element => {
 
+  const navigate = useNavigate();
   const { jobs, getJobs} = useJobs();
   const [ searchInput, setSearchInput ] = useState('');
   const [ applyFilter, setApplyFilter ] = useState(false);
@@ -29,6 +32,10 @@ const HomePage = (): JSX.Element => {
     event.preventDefault();
     setApplyFilter(true);
   };
+  
+  const goToDetail = (id: string) => {
+    navigate(`/jobs/${id}`);
+  }
 
   return (
     <>
@@ -51,8 +58,8 @@ const HomePage = (): JSX.Element => {
         <ul className="listado center">
           {applyFilter?
           jobs.filter ( job => job.title.toLowerCase().includes(searchInput.toLowerCase()))
-          .map( (job) => <JobCard key={job.id} job={job} /> )
-          : jobs.map( (job) => <JobCard key={job.id} job={job} /> )
+          .map( (job) => <JobCard key={job.id} job={job} actionOnClick={()=>{goToDetail(job.id)}}/> )
+          : jobs.map( (job) => <JobCard key={job.id} job={job} actionOnClick={()=>{goToDetail(job.id)}}/> )
           }
         </ul>
       </div>
