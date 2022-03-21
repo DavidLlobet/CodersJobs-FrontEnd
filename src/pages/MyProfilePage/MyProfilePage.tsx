@@ -1,5 +1,6 @@
 import jwtDecode from "jwt-decode";
 import { useEffect } from "react";
+import JobAppliedCard from "../../components/JobAppliedCard/JobAppliedCard";
 import useUser from "../../hooks/useUser";
 import "./MyProfilePage.scss";
 
@@ -21,6 +22,10 @@ const MyProfilePage = (): JSX.Element => {
   return (
     <>
       <div className="username">{user.user.name}</div>
+      <h1>Mis candidaturas</h1>
+      <ul className="list">
+        <JobAppliedCard />
+      </ul>
     </>
   );
 };
