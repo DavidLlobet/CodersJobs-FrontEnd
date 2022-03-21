@@ -14,8 +14,6 @@ const useJobs = () => {
     dispatch(getJobsThunk());
   }, [dispatch]);
 
-
-
   const createJob = (job: IJob) => {
     dispatch(createJobThunk(job));
   };
