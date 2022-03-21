@@ -30,7 +30,11 @@ export const loginUserAction = (user: IUserRegistered) => ({
   payload: user,
 });
 
+export const loadUserAction = (user: IUserRegistered) => ({
+  type: actionTypes.loadUser,
+  payload: user,
+});
+
 export const logoutUserAction = () => ({
   type: actionTypes.logoutUser,
 });
-

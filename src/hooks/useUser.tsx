@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IUser, IUserRegistered } from "../interfaces/interfaces";
 import { RootState } from "../redux/store/store";
@@ -5,10 +6,11 @@ import {
   registerUserThunk,
   loginUserThunk,
   logoutUserThunk,
+  loadUserThunk,
 } from "../redux/thunks/userThunk";
 
 const useUser = () => {
-  const user = useSelector((store: RootState) => store.user);
+  const user: any = useSelector((store: RootState) => store.user);
   const dispatch = useDispatch();
 
   const registerUser = (userRegister: IUser) => {
@@ -19,6 +21,13 @@ const useUser = () => {
     dispatch(loginUserThunk(userLogin));
   };
 
+  const loadUser = useCallback(
+    (userId) => {
+      dispatch(loadUserThunk(userId));
+    },
+    [dispatch]
+  );
+
   const logoutUser = () => {
     dispatch(logoutUserThunk());
   };
@@ -27,6 +36,7 @@ const useUser = () => {
     user,
     registerUser,
     loginUser,
+    loadUser,
     logoutUser,
   };
 };
