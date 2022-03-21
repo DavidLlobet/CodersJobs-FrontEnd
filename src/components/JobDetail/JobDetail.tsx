@@ -13,6 +13,10 @@ const JobDetail = ():JSX.Element => {
     loadJob(id);
   }, [loadJob, id]);
 
+  // const addToMyJobs = (userId, jobId, event) => {
+  //   addJob(userId, jobId); 
+  // };
+
   return (
     <div className="detail">
       <div className='detail-header'> 

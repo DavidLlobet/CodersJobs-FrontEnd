@@ -7,7 +7,7 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
-import paths from "./paths/paths";
+// import paths from "./paths/paths";
 import JobFormPage from "./pages/JobFormPage/JobFormPage";
 import DetailPage from "./pages/DetailPage/DetailPage";
 import MyProfilePage from "./pages/MyProfilePage/MyProfilePage";
@@ -23,7 +23,7 @@ function App(): JSX.Element {
             <Route path="/jobs/:id" element={<DetailPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/my-profile" element={<MyProfilePage />} />
-            <Route path={paths.postJob} element={<JobFormPage />} />
+            <Route path="/job/publish" element={<JobFormPage />} />
           </Routes>
           <Footer />
         </Router>

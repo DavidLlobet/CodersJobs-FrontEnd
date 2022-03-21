@@ -1,15 +1,14 @@
 import { useState, FormEvent, ChangeEvent } from "react";
 import "./JobForm.scss";
-import { useNavigate } from "react-router";
+// import { useNavigate } from "react-router";
 // import CurrencyInput from "react-currency-input-field";
 import { IJob } from "../../interfaces/interfaces";
 import useJobs from "../../hooks/useJobs";
-import paths from "../../paths/paths";
 
 const JobForm = (): JSX.Element => {
   const { createJob } = useJobs();
 
-  const initialJobDataForm: IJob = {
+  const initialJobData: IJob = {
     id: "",
     title: "",
     company: "",
@@ -26,38 +25,43 @@ const JobForm = (): JSX.Element => {
     releaseDate: new Date(Date.now()),
   };
 
-  const navigate = useNavigate();
-  const [jobData, SetJobData] = useState(initialJobDataForm);
-
-  const onSubmitData = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const newJobData = {
-      id: "",
-      title: jobData.title,
-      company: jobData.company,
-      companyAnchor: jobData.companyAnchor,
-      jobAnchor: jobData.jobAnchor,
-      description: jobData.description,
-      contactPerson: jobData.contactPerson,
-      salary: jobData.salary,
-      numberOfWorkers: jobData.numberOfWorkers,
-      startup: jobData.startup,
-      location: jobData.location,
-      desiredProfile: jobData.desiredProfile,
-      image: jobData.image,
-      releaseDate: new Date(Date.now()),
-    };
-
-    createJob(newJobData);
-    navigate(paths.getJobs);
-  };
+  // const navigate = useNavigate();
+  const [jobData, setJobData] = useState(initialJobData);
 
   const onChangeJobData = (
     event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
   ) => {
-    SetJobData({ ...jobData, [event.target.id]: event.target.value });
+    setJobData({ 
+      ...jobData, 
+      [event.target.id]: event.target.value, 
+    });
   };
+
+  const onSubmitData = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    // const newJobData = {
+    //   id: "",
+    //   title: jobData.title,
+    //   company: jobData.company,
+    //   companyAnchor: jobData.companyAnchor,
+    //   jobAnchor: jobData.jobAnchor,
+    //   description: jobData.description,
+    //   contactPerson: jobData.contactPerson,
+    //   salary: jobData.salary,
+    //   numberOfWorkers: jobData.numberOfWorkers,
+    //   startup: jobData.startup,
+    //   location: jobData.location,
+    //   desiredProfile: jobData.desiredProfile,
+    //   image: jobData.image,
+    //   releaseDate: new Date(Date.now()),
+    // };
+
+    createJob(jobData);
+    // navigate(paths.getJobs);
+  };
+
+
 
   return (
     <div className="form-container">
@@ -70,25 +74,39 @@ const JobForm = (): JSX.Element => {
             type="text"
             autoComplete="off"
             className="job-form__input"
+            id="title"
             value={jobData.title}
             placeholder="Título de la posición abierta"
-            id="title"
             onChange={onChangeJobData}
           />
         </div>
-        <div className="job-form__field">
-          <label htmlFor="company" className="job-form__label">
-            Organización
-          </label>
-          <input
-            type="text"
-            autoComplete="off"
-            className="job-form__input"
-            value={jobData.company}
-            placeholder="Nombre de tu organización"
-            id="company"
-            onChange={onChangeJobData}
-          />
+        <div className='job-form-company-startup'>
+          <div className="job-form__field">
+            <label htmlFor="company" className="job-form__label">
+              Organización
+            </label>
+            <input
+              type="text"
+              autoComplete="off"
+              className="job-form__input job-form-organizacion"
+              id="company"
+              value={jobData.company}
+              placeholder="Nombre de tu organización"
+              onChange={onChangeJobData}
+            />
+          </div>
+          <div className="job-form__field job-form__salary">
+            <label htmlFor="startup" className="job-form__label2">
+              Startup
+            </label>
+            <input
+              type="checkbox"
+              className="job-form__input2 job-form__checkbox"
+              // value={jobData.startup}
+              id="startup"
+              onChange={onChangeJobData}
+            />
+          </div>
         </div>
         <div className="job-form__field">
           <label htmlFor="companyAnchor" className="job-form__label">
@@ -159,7 +177,6 @@ const JobForm = (): JSX.Element => {
             onChange={onChangeJobData}
           />
         </div>
-
         <div className="job-form__field">
           <label htmlFor="numberOfWorkers" className="job-form__label">
             Número de trabajadores
@@ -174,19 +191,6 @@ const JobForm = (): JSX.Element => {
             onChange={onChangeJobData}
           />
         </div>
-        <div className="job-form__field job-form__salary">
-          <input
-            type="checkbox"
-            className="job-form__input2 job-form__checkbox"
-            // value={jobData.startup}
-            id="startup"
-            onChange={onChangeJobData}
-          />
-          <label htmlFor="startup" className="job-form__label2">
-            Sois una startup?
-          </label>
-        </div>
-
         <div className="job-form__field">
           <label htmlFor="desiredProfile" className="job-form__label">
             Perfil deseado
@@ -231,7 +235,7 @@ const JobForm = (): JSX.Element => {
           />
         </div>
         <div className="job-form__field">
-          <input className="job-form__button" type="submit" value="Publicar!" />
+          <button className="job-form__button" type="submit" > Publicar! </button>
         </div>
       </form>
     </div>

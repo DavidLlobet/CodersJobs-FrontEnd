@@ -35,7 +35,7 @@ const HomePage = (): JSX.Element => {
   
   const goToDetail = (id: string) => {
     navigate(`/jobs/${id}`);
-  }
+  };
 
   return (
     <>
