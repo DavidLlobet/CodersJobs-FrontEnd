@@ -3,6 +3,7 @@ import jwtDecode from "jwt-decode";
 import toast from "react-hot-toast";
 import { IUser, IUserRegistered } from "../../interfaces/interfaces";
 import {
+  loadUserAction,
   loginUserAction,
   logoutUserAction,
   registerUserAction,
@@ -44,6 +45,22 @@ export const loginUserThunk =
         duration: 3000,
       });
     }
+  };
+
+export const loadUserThunk =
+  (userId: string) =>
+  async (dispatch: AppDispatch): Promise<void> => {
+    const storageUser: any = localStorage.getItem("loggedUser");
+    const token = JSON.parse(storageUser);
+    const loadUser = await axios.get(
+      `${process.env.REACT_APP_URL_API_USER}/${userId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token.ownerToken}`,
+        },
+      }
+    );
+    dispatch(loadUserAction(loadUser.data));
   };
 
 export const logoutUserThunk = () => (dispatch: AppDispatch) => {
