@@ -7,6 +7,7 @@ import {
   loginUserThunk,
   logoutUserThunk,
   loadUserThunk,
+  applyJobThunk,
 } from "../redux/thunks/userThunk";
 
 const useUser = () => {
@@ -20,6 +21,13 @@ const useUser = () => {
   const loginUser = (userLogin: IUserRegistered) => {
     dispatch(loginUserThunk(userLogin));
   };
+
+  const applyJob = useCallback(
+    (userId) => {
+      dispatch(applyJobThunk(userId));
+    },
+    [dispatch]
+  );
 
   const loadUser = useCallback(
     (userId) => {
@@ -36,6 +44,7 @@ const useUser = () => {
     user,
     registerUser,
     loginUser,
+    applyJob,
     loadUser,
     logoutUser,
   };

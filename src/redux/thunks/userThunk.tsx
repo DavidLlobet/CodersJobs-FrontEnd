@@ -3,6 +3,7 @@ import jwtDecode from "jwt-decode";
 import toast from "react-hot-toast";
 import { IUser, IUserRegistered } from "../../interfaces/interfaces";
 import {
+  applyJobAction,
   loadUserAction,
   loginUserAction,
   logoutUserAction,
@@ -46,6 +47,40 @@ export const loginUserThunk =
       });
     }
   };
+
+export const applyJobThunk =
+  (userId: string) =>
+  async (dispatch: AppDispatch): Promise<void> => {
+    const storageUser: any = localStorage.getItem("loggedUser");
+    const token = JSON.parse(storageUser);
+    const applyJob = await axios.put(
+      `${process.env.REACT_APP_URL_API_USER}/${userId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token.ownerToken}`,
+        },
+      }
+    );
+    dispatch(applyJobAction(applyJob.data));
+  };
+
+// export const addFavouriteThunk =
+//   (userId, announcementId) => async (dispatch) => {
+//     const { token } = JSON.parse(
+//       localStorage.getItem(process.env.REACT_APP_LOCAL_STORAGE)
+//     );
+//     const response = await fetch(
+//       `${apiUrl}/users/${userId}/favourites/${announcementId}`,
+//       {
+//         method: "PUT",
+//         headers: {
+//           Authorization: "Bearer " + token,
+//         },
+//       }
+//     );
+//     const favourite = await response.json();
+//     dispatch(addFavouriteAction(favourite));
+//   };
 
 export const loadUserThunk =
   (userId: string) =>
