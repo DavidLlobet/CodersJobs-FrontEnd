@@ -23,8 +23,8 @@ const useUser = () => {
   };
 
   const applyJob = useCallback(
-    (userId) => {
-      dispatch(applyJobThunk(userId));
+    (userId, newUser) => {
+      dispatch(applyJobThunk(userId, newUser));
     },
     [dispatch]
   );
