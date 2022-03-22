@@ -25,6 +25,7 @@ export const loadJobThunk = (jobId: string) => async (dispatch: AppDispatch):Pro
 export const createJobThunk =
   (job: object) =>
   async (dispatch: AppDispatch): Promise<void> => {
+
     try {
       const storageUser: any = localStorage.getItem("loggedUser");
       const { ownerToken } = JSON.parse(storageUser);
@@ -38,4 +39,5 @@ export const createJobThunk =
     } catch {
       toast.error("Error");
     }
+
   };
