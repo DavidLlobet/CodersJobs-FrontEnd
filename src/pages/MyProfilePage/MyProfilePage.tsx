@@ -19,6 +19,8 @@ const MyProfilePage = (): JSX.Element => {
     loadUser(idUser);
   }, [loadUser, idUser]);
 
+  console.log(user);
+
   return (
     <>
       <div className="username">{user.user.name}</div>
