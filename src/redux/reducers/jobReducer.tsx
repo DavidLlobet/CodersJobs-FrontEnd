@@ -14,7 +14,8 @@ const jobReducer = (job:IJob = {
   startup: false,
   location: "",
   desiredProfile: "",
-  releaseDate: new Date(),
+  // releaseDate: new Date(),
+  owner: '',
 }, action: AnyAction={type:''}) => {
   let newJob: IJob;
 

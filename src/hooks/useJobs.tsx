@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { getJobsThunk, createJobThunk} from "../redux/thunks/jobsThunk";
 import { RootState } from "../redux/store/store";
-import { IJob } from "../interfaces/interfaces";
+// import { IJob } from "../interfaces/interfaces";
 
 const useJobs = () => {
   const jobs = useSelector((store: RootState) => store.jobs);
@@ -14,7 +14,7 @@ const useJobs = () => {
     dispatch(getJobsThunk());
   }, [dispatch]);
 
-  const createJob = (job: IJob) => {
+  const createJob = (job: any) => {
     dispatch(createJobThunk(job));
   };
 
