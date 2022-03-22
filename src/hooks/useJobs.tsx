@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { Dispatch } from "redux";
 import { useSelector, useDispatch } from "react-redux";
 
-import { getJobsThunk, createJobThunk } from "../redux/thunks/jobsThunk";
+import { getJobsThunk, createJobThunk} from "../redux/thunks/jobsThunk";
 import { RootState } from "../redux/store/store";
 import { IJob } from "../interfaces/interfaces";
 

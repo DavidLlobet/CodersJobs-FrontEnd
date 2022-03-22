@@ -10,6 +10,11 @@ export const getJobsAction = (jobs: IJob[]) => ({
   payload: jobs,
 });
 
+export const loadJobAction = (job: IJob) => ({
+  type: actionTypes.loadJob,
+  payload: job,
+});
+
 export const createJobAction = (job: IJob) => ({
   type: actionTypes.createJob,
   payload: job,
@@ -25,7 +30,11 @@ export const loginUserAction = (user: IUserRegistered) => ({
   payload: user,
 });
 
+export const loadUserAction = (user: IUserRegistered) => ({
+  type: actionTypes.loadUser,
+  payload: user,
+});
+
 export const logoutUserAction = () => ({
   type: actionTypes.logoutUser,
 });
-
