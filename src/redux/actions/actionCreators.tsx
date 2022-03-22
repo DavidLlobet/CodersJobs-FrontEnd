@@ -30,6 +30,11 @@ export const loginUserAction = (user: IUserRegistered) => ({
   payload: user,
 });
 
+export const applyJobAction = (user: IUserRegistered) => ({
+  type: actionTypes.applyJob,
+  payload: user,
+});
+
 export const loadUserAction = (user: IUserRegistered) => ({
   type: actionTypes.loadUser,
   payload: user,
