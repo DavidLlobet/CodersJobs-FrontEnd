@@ -23,12 +23,12 @@ export const loadJobThunk = (jobId: string) => async (dispatch: AppDispatch):Pro
 };
 
 export const createJobThunk =
-  (job: IJob) =>
+  (job: object) =>
   async (dispatch: AppDispatch): Promise<void> => {
     try {
       const storageUser: any = localStorage.getItem("loggedUser");
-      const { token } = JSON.parse(storageUser);
-      const headers = {Authorization: `Bearer ${token}`}
+      const { ownerToken } = JSON.parse(storageUser);
+      const headers = {Authorization: `Bearer ${ownerToken}`}
       const newJob = await axios.post(`${apiUrl}jobs`,job, {headers});
 
       if (newJob.status === 201) {
