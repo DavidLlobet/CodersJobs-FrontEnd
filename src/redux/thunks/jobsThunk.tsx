@@ -19,6 +19,5 @@ export const createJobThunk =
   (job: IJob) =>
   async (dispatch: AppDispatch): Promise<void> => {
     const newJob: IJob = await axios.post(`${apiUrl}${paths.postJob}`, job);
-
     dispatch(createJobAction(newJob));
   };
