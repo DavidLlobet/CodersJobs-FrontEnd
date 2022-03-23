@@ -51,10 +51,8 @@ export const loginUserThunk =
 export const applyJobThunk =
   (userId: string, newUser: IUserRegistered) =>
   async (dispatch: AppDispatch): Promise<void> => {
-    console.log(newUser);
     const storageUser: any = localStorage.getItem("loggedUser");
     const token = JSON.parse(storageUser);
-    console.log(token);
     const applyJob = await axios.put(
       `${process.env.REACT_APP_URL_API_USER}/${userId}`,
       newUser,
