@@ -12,7 +12,8 @@ export interface IJob {
   location: string;
   desiredProfile: string;
   image?: string;
-  releaseDate: Date;
+  // releaseDate: Date;
+  owner: string;
 }
 
 export interface IUser {

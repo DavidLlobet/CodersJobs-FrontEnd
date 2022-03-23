@@ -2,14 +2,13 @@ import { useState, FormEvent, ChangeEvent } from "react";
 import "./JobForm.scss";
 // import { useNavigate } from "react-router";
 // import CurrencyInput from "react-currency-input-field";
-import { IJob } from "../../interfaces/interfaces";
+// import { IJob } from "../../interfaces/interfaces";
 import useJobs from "../../hooks/useJobs";
 
 const JobForm = (): JSX.Element => {
   const { createJob } = useJobs();
 
-  const initialJobData: IJob = {
-    id: "",
+  const initialJobData = {
     title: "",
     company: "",
     companyAnchor: "",
@@ -22,7 +21,7 @@ const JobForm = (): JSX.Element => {
     location: "",
     desiredProfile: "",
     image: "",
-    releaseDate: new Date(Date.now()),
+    owner: '',
   };
 
   // const navigate = useNavigate();
@@ -40,24 +39,24 @@ const JobForm = (): JSX.Element => {
   const onSubmitData = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    // const newJobData = {
-    //   id: "",
-    //   title: jobData.title,
-    //   company: jobData.company,
-    //   companyAnchor: jobData.companyAnchor,
-    //   jobAnchor: jobData.jobAnchor,
-    //   description: jobData.description,
-    //   contactPerson: jobData.contactPerson,
-    //   salary: jobData.salary,
-    //   numberOfWorkers: jobData.numberOfWorkers,
-    //   startup: jobData.startup,
-    //   location: jobData.location,
-    //   desiredProfile: jobData.desiredProfile,
-    //   image: jobData.image,
-    //   releaseDate: new Date(Date.now()),
-    // };
+    const newJobData = {
+      title: jobData.title,
+      company: jobData.company,
+      companyAnchor: jobData.companyAnchor,
+      jobAnchor: jobData.jobAnchor,
+      description: jobData.description,
+      contactPerson: jobData.contactPerson,
+      salary: jobData.salary,
+      numberOfWorkers: jobData.numberOfWorkers,
+      startup: jobData.startup,
+      location: jobData.location,
+      desiredProfile: jobData.desiredProfile,
+      image: jobData.image,
+      // releaseDate: new Date(Date.now()),
+      owner: '622f6978ec924fb90e7a7bc1',
+    };
 
-    createJob(jobData);
+    createJob(newJobData);
     // navigate(paths.getJobs);
   };
 
