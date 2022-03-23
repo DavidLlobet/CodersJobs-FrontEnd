@@ -1,11 +1,20 @@
 import { useState, FormEvent, ChangeEvent } from "react";
+import jwtDecode from "jwt-decode";
+import { useNavigate } from "react-router";
+
 import "./JobForm.scss";
-// import { useNavigate } from "react-router";
-// import CurrencyInput from "react-currency-input-field";
-// import { IJob } from "../../interfaces/interfaces";
 import useJobs from "../../hooks/useJobs";
 
 const JobForm = (): JSX.Element => {
+
+  // sacamos el id del usuario loggeado
+  const tokenUser: any = localStorage.getItem("loggedUser");
+  const userToken = JSON.parse(tokenUser);
+  const { ownerToken } = userToken;
+  const tokenDecode: any = jwtDecode(ownerToken);
+  const idUser = tokenDecode.id;
+  
+
   const { createJob } = useJobs();
 
   const initialJobData = {
@@ -24,7 +33,6 @@ const JobForm = (): JSX.Element => {
     owner: '',
   };
 
-  // const navigate = useNavigate();
   const [jobData, setJobData] = useState(initialJobData);
 
   const onChangeJobData = (
@@ -36,6 +44,7 @@ const JobForm = (): JSX.Element => {
     });
   };
 
+  const navigate = useNavigate();
   const onSubmitData = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -52,12 +61,11 @@ const JobForm = (): JSX.Element => {
       location: jobData.location,
       desiredProfile: jobData.desiredProfile,
       image: jobData.image,
-      // releaseDate: new Date(Date.now()),
-      owner: '622f6978ec924fb90e7a7bc1',
+      owner: idUser,
     };
 
     createJob(newJobData);
-    // navigate(paths.getJobs);
+    navigate(-1);
   };
 
   return (
@@ -99,7 +107,7 @@ const JobForm = (): JSX.Element => {
             <input
               type="checkbox"
               className="job-form__input2 job-form__checkbox"
-              // value={jobData.startup}
+              checked={jobData.startup}
               id="startup"
               onChange={onChangeJobData}
             />
@@ -209,7 +217,6 @@ const JobForm = (): JSX.Element => {
               type="number"
               autoComplete="off"
               className="job-form__input job-form__input--salary"
-              // onFocus={() => setJobData({ ...jobData, jobData.salary: ""})}
               value={jobData.salary}
               placeholder="Salario"
               id="salary"
