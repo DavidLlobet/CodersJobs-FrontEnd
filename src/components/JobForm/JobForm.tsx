@@ -144,7 +144,7 @@ const JobForm = (): JSX.Element => {
             autoComplete="off"
             className="job-form__input"
             value={jobData.location}
-            placeholder="Dónde estáis?"
+            placeholder="Población"
             id="location"
             onChange={onChangeJobData}
           />
