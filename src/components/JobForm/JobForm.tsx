@@ -1,4 +1,4 @@
-import { useState, FormEvent, ChangeEvent } from "react";
+import { useState, FormEvent } from "react";
 import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router";
 
@@ -36,11 +36,13 @@ const JobForm = (): JSX.Element => {
   const [jobData, setJobData] = useState(initialJobData);
 
   const onChangeJobData = (
-    event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
+    event:any
   ) => {
+    const value = event.target.id === 'startup' ? event.target.checked : event.target.value;
+
     setJobData({
       ...jobData,
-      [event.target.id]: event.target.value,
+      [event.target.id]: value,
     });
   };
 
