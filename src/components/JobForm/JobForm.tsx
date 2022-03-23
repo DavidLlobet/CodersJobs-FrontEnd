@@ -16,8 +16,8 @@ const JobForm = (): JSX.Element => {
     jobAnchor: "",
     description: "",
     contactPerson: "",
-    salary: undefined,
-    numberOfWorkers: undefined,
+    salary: 0,
+    numberOfWorkers: 0,
     startup: false,
     location: "",
     desiredProfile: "",
@@ -31,9 +31,9 @@ const JobForm = (): JSX.Element => {
   const onChangeJobData = (
     event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
   ) => {
-    setJobData({ 
-      ...jobData, 
-      [event.target.id]: event.target.value, 
+    setJobData({
+      ...jobData,
+      [event.target.id]: event.target.value,
     });
   };
 
@@ -61,8 +61,6 @@ const JobForm = (): JSX.Element => {
     // navigate(paths.getJobs);
   };
 
-
-
   return (
     <div className="form-container">
       <form className="job-form" onSubmit={onSubmitData}>
@@ -80,7 +78,7 @@ const JobForm = (): JSX.Element => {
             onChange={onChangeJobData}
           />
         </div>
-        <div className='job-form-company-startup'>
+        <div className="job-form-company-startup">
           <div className="job-form__field">
             <label htmlFor="company" className="job-form__label">
               Organización
@@ -212,6 +210,7 @@ const JobForm = (): JSX.Element => {
               type="number"
               autoComplete="off"
               className="job-form__input job-form__input--salary"
+              // onFocus={() => setJobData({ ...jobData, jobData.salary: ""})}
               value={jobData.salary}
               placeholder="Salario"
               id="salary"
@@ -235,7 +234,10 @@ const JobForm = (): JSX.Element => {
           />
         </div>
         <div className="job-form__field">
-          <button className="job-form__button" type="submit" > Publicar! </button>
+          <button className="job-form__button" type="submit">
+            {" "}
+            Publicar!{" "}
+          </button>
         </div>
       </form>
     </div>
