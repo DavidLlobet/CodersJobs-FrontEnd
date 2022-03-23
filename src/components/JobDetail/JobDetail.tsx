@@ -25,11 +25,14 @@ const JobDetail = (): JSX.Element => {
 
   const tokenUser: any = localStorage.getItem("loggedUser");
 
-  const userToken = JSON.parse(tokenUser);
+  let idUser: string='';
+  if (tokenUser) {
+    const userToken = JSON.parse(tokenUser);
 
-  const { ownerToken } = userToken;
-  const tokenDecode: any = jwtDecode(ownerToken);
-  const idUser = tokenDecode.id;
+    const { ownerToken } = userToken;
+    const tokenDecode: any = jwtDecode(ownerToken);
+    idUser = tokenDecode.id;
+  }
 
   const onSubmit = (event: any) => {
     event.preventDefault();
