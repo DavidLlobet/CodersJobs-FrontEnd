@@ -44,6 +44,7 @@ const RegisterForm = (): JSX.Element => {
         value={userData.name}
         required
         onChange={changeUserData}
+        placeholder='Nombre'
       ></input>
       <p className="register-form__text">Escribe tu email</p>
       <label htmlFor="email"></label>
@@ -55,6 +56,7 @@ const RegisterForm = (): JSX.Element => {
         value={userData.email}
         required
         onChange={changeUserData}
+        placeholder='Email'
       ></input>
       <p className="login-form__text">Nombre de usuario</p>
       <label htmlFor="userName"></label>

@@ -50,6 +50,7 @@ const LoginForm = (): JSX.Element => {
         value={userData.userName}
         required
         onChange={changeUserData}
+        placeholder='Usuario'
       ></input>
       <p className="login-form__text">Contraseña</p>
       <label htmlFor="password"></label>
@@ -61,6 +62,7 @@ const LoginForm = (): JSX.Element => {
         value={userData.password}
         required
         onChange={changeUserData}
+        placeholder='Contrasena'
       ></input>
       <button type="submit" className="login-form__button">
         Iniciar sesión
