@@ -39,7 +39,7 @@ const Header = (): JSX.Element => {
   };
 
   const addJobClick = () => {
-    navigate("/job/publish");
+    navigate("/jobs");
   };
 
   return (
@@ -62,7 +62,7 @@ const Header = (): JSX.Element => {
       ) : (
         ""
       )}
-      {pathname === "/my-profile" && isAuthenticated === true ? (
+      {isAuthenticated === true ? (
         <button className="header__add-job" onClick={addJobClick}>
           Añadir job
         </button>
