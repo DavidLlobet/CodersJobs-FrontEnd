@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import useJob from "../../hooks/useJob";
 import "./JobAppliedCard.scss";
 
-const JobAppliedCard = ({job:{jobId, status}}:any): JSX.Element => {
+const JobAppliedCard = ({jobApplied:{jobId, status}}:any): JSX.Element => {
 
   const {job, loadJob} =useJob();
 

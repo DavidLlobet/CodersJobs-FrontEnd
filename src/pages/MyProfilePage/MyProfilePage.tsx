@@ -19,8 +19,6 @@ const MyProfilePage = (): JSX.Element => {
     loadUser(idUser);
   }, [loadUser, idUser]);
 
-  // console.log(user);
-
   return (
     <>
       <div className="username">{user.user.name}</div>
@@ -28,7 +26,7 @@ const MyProfilePage = (): JSX.Element => {
       <ul className="list">
         {user.user.jobsApplied ?
           user.user.jobsApplied.map(
-            (job:any) => (<JobAppliedCard key={job.jobId} job={job}/>)
+            (job:any) => (<JobAppliedCard key={job.jobId} jobApplied={job}/>)
           )
           : ""
         }
