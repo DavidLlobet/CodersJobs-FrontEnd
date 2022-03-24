@@ -12,7 +12,6 @@ export interface IJob {
   location: string;
   desiredProfile: string;
   image?: string;
-  // releaseDate: Date;
   owner: string;
 }
 
