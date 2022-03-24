@@ -18,7 +18,7 @@ const JobDetail = (): JSX.Element => {
 
   const tokenUser: any = localStorage.getItem("loggedUser");
 
-  let idUser: string='';
+  let idUser: string = "";
   if (tokenUser) {
     const userToken = JSON.parse(tokenUser);
 
@@ -43,10 +43,6 @@ const JobDetail = (): JSX.Element => {
     applyJob(idUser, newUser);
   };
 
-  // const addToMyJobs = (userId, jobId, event) => {
-  //   addJob(userId, jobId);
-  // };
-
   return (
     <div className="detail">
       <div className="detail-header">
@@ -68,7 +64,7 @@ const JobDetail = (): JSX.Element => {
       </div>
       <ul className="detail-info">
         <li className="detail-item">
-          <span className="detail-item-title"> Descripcion </span>
+          <span className="detail-item-title"> Descripción </span>
           {job.description}
         </li>
         <li className="detail-item">
@@ -76,7 +72,7 @@ const JobDetail = (): JSX.Element => {
           {job.desiredProfile}
         </li>
         <li className="detail-item">
-          <span className="detail-item-title"> Que ofrecemos </span>
+          <span className="detail-item-title"> Qué ofrecemos </span>
           {job.salary}
         </li>
         <li className="detail-item">
