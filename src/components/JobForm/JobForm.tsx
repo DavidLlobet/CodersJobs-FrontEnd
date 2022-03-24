@@ -223,6 +223,7 @@ const JobForm = (): JSX.Element => {
               placeholder="Salario"
               id="salary"
               onChange={onChangeJobData}
+              onFocus={focusHandler}
             />
             <span className="job-form__salary__euro">€</span>
           </div>
