@@ -1,4 +1,4 @@
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
 import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router";
 
@@ -6,14 +6,12 @@ import "./JobForm.scss";
 import useJobs from "../../hooks/useJobs";
 
 const JobForm = (): JSX.Element => {
-
   // sacamos el id del usuario loggeado
   const tokenUser: any = localStorage.getItem("loggedUser");
   const userToken = JSON.parse(tokenUser);
   const { ownerToken } = userToken;
   const tokenDecode: any = jwtDecode(ownerToken);
   const idUser = tokenDecode.id;
-  
 
   const { createJob } = useJobs();
 
@@ -30,15 +28,17 @@ const JobForm = (): JSX.Element => {
     location: "",
     desiredProfile: "",
     image: "",
-    owner: '',
+    owner: "",
   };
 
   const [jobData, setJobData] = useState(initialJobData);
 
   const onChangeJobData = (
-    event:any
+    event: ChangeEvent<any>
+    // event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | any>
   ) => {
-    const value = event.target.id === 'startup' ? event.target.checked : event.target.value;
+    const value =
+      event.target.id === "startup" ? event.target.checked : event.target.value;
 
     setJobData({
       ...jobData,
@@ -57,8 +57,8 @@ const JobForm = (): JSX.Element => {
       jobAnchor: jobData.jobAnchor,
       description: jobData.description,
       contactPerson: jobData.contactPerson,
-      salary: jobData.salary,
-      numberOfWorkers: jobData.numberOfWorkers,
+      salary: +jobData.salary,
+      numberOfWorkers: +jobData.numberOfWorkers,
       startup: jobData.startup,
       location: jobData.location,
       desiredProfile: jobData.desiredProfile,
