@@ -1,9 +1,9 @@
-import JobDetail from '../../components/JobDetail/JobDetail';
- 
+import JobDetail from "../../components/JobDetail/JobDetail";
+
 const DetailPage = () => (
-    <div>
-      <JobDetail/>
-    </div>
-  );
+  <>
+    <JobDetail />
+  </>
+);
 
 export default DetailPage;

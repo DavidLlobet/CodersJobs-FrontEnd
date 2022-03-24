@@ -1,9 +1,11 @@
 import JobForm from "../../components/JobForm/JobForm";
+import "./JobFormPage.scss";
 
 const JobFormPage = (): JSX.Element => (
-  <div className="jobform-page" >
+  <>
+    <h1 className="title">Añadir Job</h1>
     <JobForm />
-  </div>
+  </>
 );
 
 export default JobFormPage;
