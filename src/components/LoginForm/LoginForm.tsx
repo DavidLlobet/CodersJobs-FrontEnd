@@ -14,14 +14,22 @@ const LoginForm = (): JSX.Element => {
   };
 
   const [userData, setUserData] = useState(initialData);
+  const [isDisable, setIsDisable] = useState(true);
   const { loginUser } = useUser();
   const navigate = useNavigate();
+
+  const checkForm = () => {
+    if (userData.userName !== "" && userData.password !== "") {
+      setIsDisable(false);
+    }
+  };
 
   const changeUserData = (event: ChangeEvent<HTMLInputElement>) => {
     setUserData({
       ...userData,
       [event.target.id]: event.target.value,
     });
+    checkForm();
   };
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -50,21 +58,23 @@ const LoginForm = (): JSX.Element => {
         value={userData.userName}
         required
         onChange={changeUserData}
-        placeholder='Usuario'
+        placeholder="Usuario"
+        autoComplete="off"
       ></input>
       <p className="login-form__text">Contraseña</p>
       <label htmlFor="password"></label>
       <input
-        type="text"
+        type="password"
         id="password"
         name="password"
         className="login-form__input"
         value={userData.password}
         required
         onChange={changeUserData}
-        placeholder='Contrasena'
+        placeholder="Contraseña"
+        autoComplete="off"
       ></input>
-      <button type="submit" className="login-form__button">
+      <button type="submit" className="login-form__button" disabled={isDisable}>
         Iniciar sesión
       </button>
     </form>

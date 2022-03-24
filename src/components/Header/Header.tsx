@@ -62,7 +62,7 @@ const Header = (): JSX.Element => {
       ) : (
         ""
       )}
-      {isAuthenticated === true ? (
+      {pathname === "/my-profile" ? (
         <button className="header__add-job" onClick={addJobClick}>
           Añadir job
         </button>
