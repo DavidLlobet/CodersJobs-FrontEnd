@@ -134,7 +134,7 @@ const JobForm = (): JSX.Element => {
             Logo
           </label>
           <input
-            type="file"
+            type="text"
             autoComplete="off"
             className="job-form__input"
             value={jobData.image}
