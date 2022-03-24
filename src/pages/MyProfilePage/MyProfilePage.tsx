@@ -19,14 +19,19 @@ const MyProfilePage = (): JSX.Element => {
     loadUser(idUser);
   }, [loadUser, idUser]);
 
-  console.log(user);
+  // console.log(user);
 
   return (
     <>
       <div className="username">{user.user.name}</div>
       <h1>Mis candidaturas</h1>
       <ul className="list">
-        <JobAppliedCard />
+        {user.user.jobsApplied ?
+          user.user.jobsApplied.map(
+            (job:any) => (<JobAppliedCard key={job.jobId} job={job}/>)
+          )
+          : ""
+        }
       </ul>
     </>
   );

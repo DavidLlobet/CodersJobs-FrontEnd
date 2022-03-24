@@ -16,13 +16,6 @@ const JobDetail = (): JSX.Element => {
     loadJob(id);
   }, [loadJob, id]);
 
-  // const changeUserData = (event: ChangeEvent<HTMLInputElement>) => {
-  //   setUserData({
-  //     ...userData,
-  //     [event.target.id]: event.target.value,
-  //   });
-  // };
-
   const tokenUser: any = localStorage.getItem("loggedUser");
 
   let idUser: string='';
