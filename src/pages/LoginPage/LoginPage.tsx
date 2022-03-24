@@ -4,20 +4,20 @@ import RegisterForm from "../../components/RegisterForm/RegisterForm";
 import "./LoginPage.scss";
 
 const LoginPage = (): JSX.Element => {
-  const [state, setState] = useState(false);
+  const [registered, setRegistered] = useState(false);
 
   const registerOnClick = () => {
-    if (state === false) {
-      setState(true);
+    if (registered === false) {
+      setRegistered(true);
     } else {
-      setState(false);
+      setRegistered(false);
     }
   };
   return (
     <>
       <h1 className="title">Iniciar sesión</h1>
       <LoginForm />
-      {state === false ? (
+      {registered === false ? (
         <div className="register">
           <p className="register__text">¿No tienes cuenta? Regístrate</p>
           <p className="register__click" onClick={registerOnClick}>

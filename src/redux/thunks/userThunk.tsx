@@ -88,7 +88,7 @@ export const loadUserThunk =
   async (dispatch: AppDispatch): Promise<void> => {
     const storageUser: any = localStorage.getItem("loggedUser");
     const token = JSON.parse(storageUser);
-    const loadUser = await axios.get(
+    const loggedInUser = await axios.get(
       `${process.env.REACT_APP_URL_API_USER}/${userId}`,
       {
         headers: {
@@ -96,7 +96,7 @@ export const loadUserThunk =
         },
       }
     );
-    dispatch(loadUserAction(loadUser.data));
+    dispatch(loadUserAction(loggedInUser.data));
   };
 
 export const logoutUserThunk = () => (dispatch: AppDispatch) => {
