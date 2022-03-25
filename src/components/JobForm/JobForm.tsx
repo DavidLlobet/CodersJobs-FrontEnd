@@ -251,7 +251,7 @@ const JobForm = (): JSX.Element => {
         <div className="job-form__field">
           <button className="job-form__button" type="submit">
             {" "}
-            Publicar!{" "}
+            Publicar{" "}
           </button>
         </div>
       </form>
