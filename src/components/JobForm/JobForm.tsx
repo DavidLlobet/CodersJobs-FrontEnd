@@ -46,6 +46,12 @@ const JobForm = (): JSX.Element => {
     });
   };
 
+  // const focusHandler = (event: FocusEvent<HTMLInputElement>) => {
+  //   if (event.target.id === "salary") {
+  //     event.target.value = "";
+  //   }
+  // };
+
   const navigate = useNavigate();
   const onSubmitData = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -223,6 +229,7 @@ const JobForm = (): JSX.Element => {
               placeholder="Salario"
               id="salary"
               onChange={onChangeJobData}
+              // onFocus={focusHandler}
             />
             <span className="job-form__salary__euro">€</span>
           </div>
