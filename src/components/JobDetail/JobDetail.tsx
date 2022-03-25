@@ -1,6 +1,7 @@
 import jwtDecode from "jwt-decode";
 import { useEffect } from "react";
 import { useParams } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 import useJob from "../../hooks/useJob";
 import useUser from "../../hooks/useUser";
@@ -11,6 +12,7 @@ const JobDetail = (): JSX.Element => {
   const { id } = params;
   const { job, loadJob } = useJob();
   const { user, applyJob } = useUser();
+  const navigate = useNavigate();
 
   useEffect(() => {
     loadJob(id);
@@ -43,6 +45,10 @@ const JobDetail = (): JSX.Element => {
     applyJob(idUser, newUser);
   };
 
+  const loginClick = () => {
+    navigate("/login");
+  };
+
   return (
     <div className="detail">
       <div className="detail-header">
@@ -57,10 +63,16 @@ const JobDetail = (): JSX.Element => {
             {job.numberOfWorkers} employees{" "}
           </p>
         </div>
-        <button type="submit" className="job-application" onClick={onSubmit}>
-          {" "}
-          Inscribirse{" "}
-        </button>
+        {tokenUser !== null ? (
+          <button type="submit" className="job-application" onClick={onSubmit}>
+            {" "}
+            Inscribirse{" "}
+          </button>
+        ) : (
+          <button className="job-application" onClick={loginClick}>
+            Login/Register
+          </button>
+        )}
       </div>
       <ul className="detail-info">
         <li className="detail-item">
